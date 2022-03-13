@@ -1,0 +1,1 @@
+extern void copy_matrix(double **in, double **out, int nrows, int ncols);
