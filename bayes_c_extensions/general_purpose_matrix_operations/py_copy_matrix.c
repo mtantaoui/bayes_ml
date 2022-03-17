@@ -20,7 +20,8 @@ PyObject *py_copy_matrix(PyObject *self, PyObject *args)
     if (!PyArg_ParseTuple(args, "O!", &PyArray_Type, &py_matrix_in))
     {
         // Check to make sure input isn't zero dimensional!
-        if ((PyArray_DIMS(py_matrix_in) == NULL) || (PyArray_STRIDES(py_matrix_in) == NULL)){
+        if ((PyArray_DIMS(py_matrix_in) == NULL) || (PyArray_STRIDES(py_matrix_in) == NULL))
+        {
             PyErr_Format(PyExc_TypeError,
                          "Input is zero-dimensional.");
             return NULL;
