@@ -38,6 +38,15 @@ double **ptrvector(long n)
     return v;
 }
 
+double *pyvector_to_Carrayptrs(PyArrayObject *arrayin)
+{
+    // int n;
+    // double *vector;
+
+    // n = arrayin->dimensions[0];
+    return (double *)arrayin->data; /* pointer to arrayin data as double */
+}
+
 double **pymatrix_to_Carrayptrs(PyArrayObject *arrayin)
 {
     double **c, *a;
