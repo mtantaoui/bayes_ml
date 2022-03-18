@@ -5,18 +5,17 @@
 
 #include "numpy/arrayobject.h"
 
-PyObject *py_set_row(PyObject *self, PyObject *args)
+PyObject *py_set_column(PyObject *self, PyObject *args)
 {
     PyArrayObject *py_matrix_in, *py_vector_in;
-    int ncols, row;
-    npy_intp dim[2];
+    int nrows, ncols, col;
 
     import_array();
 
     // printf("------  entering py_copy_matrix function     ------\n");
 
     // parse args
-    if (!PyArg_ParseTuple(args, "O!O!i", &PyArray_Type, &py_matrix_in, &PyArray_Type, &py_vector_in, &row))
+    if (!PyArg_ParseTuple(args, "O!O!i", &PyArray_Type, &py_matrix_in, &PyArray_Type, &py_vector_in, &col))
     {
         // Check to make sure input isn't zero dimensional!
         if ((PyArray_DIMS(py_matrix_in) == NULL) || (PyArray_STRIDES(py_matrix_in) == NULL))
@@ -33,7 +32,7 @@ PyObject *py_set_row(PyObject *self, PyObject *args)
         }
         return NULL;
     }
-
+    
     if ((py_matrix_in == NULL) || (py_vector_in == NULL))
         return NULL;
 
@@ -44,9 +43,10 @@ PyObject *py_set_row(PyObject *self, PyObject *args)
         return NULL;
 
     // getting matrix dimensions
-    ncols = dim[0] = py_matrix_in->dimensions[1];
+    nrows = py_matrix_in->dimensions[0];
+    ncols = py_matrix_in->dimensions[1];
 
-    set_row((double *)py_matrix_in->data, (double *)py_vector_in->data, row, ncols);
+    set_column((double *)py_matrix_in->data, (double *)py_vector_in->data, col, nrows, ncols);
 
     // printf("------  leaving py_copy_matrix function     ------\n");
 
