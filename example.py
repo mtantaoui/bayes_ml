@@ -6,4 +6,5 @@ a = np.array(range(1, 101), dtype=np.float64).reshape(10, 10)
 print(bayes_ml.copy_matrix(a))
 print(bayes_ml.get_row(a, 3))
 print(bayes_ml.get_column(a, 3))
+print(bayes_ml.set_row(a, a[3]*9, 4))
 

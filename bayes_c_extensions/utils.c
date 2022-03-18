@@ -7,6 +7,14 @@ void free_Carrayptrs(double **v)
     // printf("------  leaving free_Carrayptrs function     ------\n");
 }
 
+int  not_doublevector(PyArrayObject *vec)  {
+    if (vec->descr->type_num != NPY_DOUBLE || vec->nd != 1)  {
+        PyErr_SetString(PyExc_ValueError,
+            "In not_doublevector: array must be of type Float and 1 dimensional (n).");
+        return 1;  }
+    return 0;
+}
+
 int not_doublematrix(PyArrayObject *mat)
 {
     // printf("------  entering not_doublematrix function     ------\n");
