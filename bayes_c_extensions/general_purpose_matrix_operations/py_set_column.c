@@ -7,12 +7,11 @@
 
 PyObject *py_set_column(PyObject *self, PyObject *args)
 {
-    PyArrayObject *py_matrix_in, *py_vector_in;
-    int nrows, ncols, col;
+    PyArrayObject *py_matrix_in, *py_vector_in, *py_matrix_out, *py_vector_out;
+    double **c_matrix_out, *c_vector_out;
+    int nrows, col;
 
     import_array();
-
-    // printf("------  entering py_copy_matrix function     ------\n");
 
     // parse args
     if (!PyArg_ParseTuple(args, "O!O!i", &PyArray_Type, &py_matrix_in, &PyArray_Type, &py_vector_in, &col))
@@ -32,7 +31,7 @@ PyObject *py_set_column(PyObject *self, PyObject *args)
         }
         return NULL;
     }
-    
+
     if ((py_matrix_in == NULL) || (py_vector_in == NULL))
         return NULL;
 
@@ -44,11 +43,17 @@ PyObject *py_set_column(PyObject *self, PyObject *args)
 
     // getting matrix dimensions
     nrows = py_matrix_in->dimensions[0];
-    ncols = py_matrix_in->dimensions[1];
 
-    set_column((double *)py_matrix_in->data, (double *)py_vector_in->data, col, nrows, ncols);
+    py_matrix_out = (PyArrayObject *)PyArray_SimpleNewFromData(2, PyArray_DIMS(py_matrix_in), NPY_DOUBLE, py_matrix_in->data);
+    py_vector_out = (PyArrayObject *)PyArray_SimpleNewFromData(1, PyArray_DIMS(py_vector_in), NPY_DOUBLE, py_vector_in->data);
 
-    // printf("------  leaving py_copy_matrix function     ------\n");
+    c_matrix_out = pymatrix_to_Carrayptrs(py_matrix_out);
+    c_vector_out = pyvector_to_Carrayptrs(py_vector_out);
 
-    return PyArray_Return(py_matrix_in);
+    set_column(c_matrix_out, c_vector_out, col, nrows);
+
+    free_Carrayptrs(c_matrix_out);
+    // free(c_vector_out);
+
+    return PyArray_Return(py_matrix_out);
 }
