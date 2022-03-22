@@ -3,17 +3,17 @@
 #include "general_purpose_functions.h"
 #include "numpy/arrayobject.h"
 
-PyObject* py_set_row(PyObject* self, PyObject* args)
+PyObject* py_set_diagonal(PyObject* self, PyObject* args)
 {
     PyArrayObject *py_matrix_in, *py_vector_in, *py_matrix_out, *py_vector_out;
     double **c_matrix_out, *c_vector_out;
-    int ncols, row;
+    int nrows, ncols;
 
     import_array();
 
     // parse args
-    if (!PyArg_ParseTuple(args, "O!O!i", &PyArray_Type, &py_matrix_in,
-            &PyArray_Type, &py_vector_in, &row)) {
+    if (!PyArg_ParseTuple(args, "O!O!", &PyArray_Type, &py_matrix_in,
+            &PyArray_Type, &py_vector_in)) {
         // Check to make sure input isn't zero dimensional!
         if ((PyArray_DIMS(py_matrix_in) == NULL) || (PyArray_STRIDES(py_matrix_in) == NULL)) {
             PyErr_Format(PyExc_TypeError, "Matrix Input is zero-dimensional.");
@@ -36,6 +36,7 @@ PyObject* py_set_row(PyObject* self, PyObject* args)
         return NULL;
 
     // getting matrix dimensions
+    nrows = py_matrix_in->dimensions[0];
     ncols = py_matrix_in->dimensions[1];
 
     py_matrix_out = (PyArrayObject*)PyArray_SimpleNewFromData(
@@ -46,7 +47,7 @@ PyObject* py_set_row(PyObject* self, PyObject* args)
     c_matrix_out = pymatrix_to_Carrayptrs(py_matrix_out);
     c_vector_out = pyvector_to_Carrayptrs(py_vector_out);
 
-    set_row(c_matrix_out, c_vector_out, row, ncols);
+    set_diagonal(c_matrix_out, c_vector_out, nrows, ncols);
 
     free_Carrayptrs(c_matrix_out);
     // free(c_vector_out);
