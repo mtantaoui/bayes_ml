@@ -5,15 +5,15 @@
 
 #include "numpy/arrayobject.h"
 
-PyObject *py_get_row(PyObject *self, PyObject *args) {
+PyObject *py_get_diagonal(PyObject *self, PyObject *args) {
   PyArrayObject *py_matrix_in, *py_vector_out;
-  int ncols, row;
+  int nrows, ncols;
   npy_intp dim[1];
 
   import_array();
 
   // parse args
-  if (!PyArg_ParseTuple(args, "O!i", &PyArray_Type, &py_matrix_in, &row)) {
+  if (!PyArg_ParseTuple(args, "O!", &PyArray_Type, &py_matrix_in)) {
     // Check to make sure input isn't zero dimensional!
     if ((PyArray_DIMS(py_matrix_in) == NULL) ||
         (PyArray_STRIDES(py_matrix_in) == NULL)) {
@@ -33,13 +33,14 @@ PyObject *py_get_row(PyObject *self, PyObject *args) {
     return NULL;
 
   // getting matrix dimensions
-  ncols = dim[0] = py_matrix_in->dimensions[1];
+  nrows = dim[0] = py_matrix_in->dimensions[0];
+  ncols = py_matrix_in->dimensions[1];
 
   // making a new double matrix with same dimensions
   py_vector_out = (PyArrayObject *)PyArray_SimpleNew(1, dim, NPY_DOUBLE);
 
-  get_row((double *)py_vector_out->data, (double *)py_matrix_in->data, row,
-          ncols);
+  get_diagonal((double *)py_vector_out->data, (double *)py_matrix_in->data,
+               nrows, ncols);
 
   return PyArray_Return(py_vector_out);
 }

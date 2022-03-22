@@ -12,8 +12,6 @@ PyObject *py_get_column(PyObject *self, PyObject *args) {
 
   import_array();
 
-  // printf("------  entering py_copy_matrix function     ------\n");
-
   // parse args
   if (!PyArg_ParseTuple(args, "O!i", &PyArray_Type, &py_matrix_in, &col)) {
     // Check to make sure input isn't zero dimensional!
@@ -40,12 +38,12 @@ PyObject *py_get_column(PyObject *self, PyObject *args) {
   dim[1] = 1;
 
   // making a new double matrix with same dimensions
+  // returning a column vector, a matrix with 1 column and n rows
+  // that's why we have 2 dimensions in py_vector_out
   py_vector_out = (PyArrayObject *)PyArray_SimpleNew(2, dim, NPY_DOUBLE);
 
   get_column((double *)py_vector_out->data, (double *)py_matrix_in->data, col,
              nrows, ncols);
-
-  // printf("------  leaving py_copy_matrix function     ------\n");
 
   return PyArray_Return(py_vector_out);
 }

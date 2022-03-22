@@ -11,6 +11,7 @@ static PyMethodDef BayesMethods[] = {
     {"get_column", py_get_column, METH_VARARGS, "Get a matrix column"},
     {"set_row", py_set_row, METH_VARARGS, "Set a matrix row"},
     {"set_column", py_set_column, METH_VARARGS, "Set a matrix column"},
+    {"get_diagonal", py_get_diagonal, METH_VARARGS, "Get a matrix diagonal"},
     {NULL, NULL, 0, NULL}};
 
 /* Module structure */
