@@ -6,7 +6,7 @@ setup(
     ext_modules=[
         Extension(
             "bayes_ml",
-            [   
+            [
                 "bayes_c_extensions/module.c",
                 "bayes_c_extensions/utils.c",
                 "bayes_c_extensions/general_purpose_matrix_operations/copy_matrix.c",
@@ -20,7 +20,7 @@ setup(
                 "bayes_c_extensions/general_purpose_matrix_operations/set_column.c",
                 "bayes_c_extensions/general_purpose_matrix_operations/py_set_column.c",
             ],
-            include_dirs=[np.get_include()]
+            include_dirs=[np.get_include()],
         )
     ],
 )
