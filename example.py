@@ -22,3 +22,5 @@ print(bayes_ml.set_diagonal(a, v))
 
 print(bayes_ml.set_diagonal(a, a[0]*100))
 
+print(bayes_ml.set_diagonal_to_scalar(a, np.float64(-999)))
+

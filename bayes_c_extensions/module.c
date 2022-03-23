@@ -12,6 +12,7 @@ static PyMethodDef BayesMethods[] = {
     { "set_column", py_set_column, METH_VARARGS, "Set a matrix column" },
     { "get_diagonal", py_get_diagonal, METH_VARARGS, "Get a matrix diagonal" },
     { "set_diagonal", py_set_diagonal, METH_VARARGS, "Set a matrix diagonal" },
+    { "set_diagonal_to_scalar", py_set_diagonal_to_scalar, METH_VARARGS, "Set a matrix diagonal to scalar" },
     { NULL, NULL, 0, NULL }
 };
 

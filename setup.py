@@ -23,6 +23,8 @@ setup(
                 "bayes_c_extensions/general_purpose_matrix_operations/py_get_diagonal.c",
                 "bayes_c_extensions/general_purpose_matrix_operations/set_diagonal.c",
                 "bayes_c_extensions/general_purpose_matrix_operations/py_set_diagonal.c",
+                "bayes_c_extensions/general_purpose_matrix_operations/set_diagonal_to_scalar.c",
+                "bayes_c_extensions/general_purpose_matrix_operations/py_set_diagonal_to_scalar.c",
             ],
             include_dirs=[np.get_include()],
         )
