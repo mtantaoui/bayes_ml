@@ -8,3 +8,5 @@ extern PyObject* py_set_column(PyObject* self, PyObject* args);
 extern PyObject* py_get_diagonal(PyObject* self, PyObject* args);
 extern PyObject* py_set_diagonal(PyObject* self, PyObject* args);
 extern PyObject* py_set_diagonal_to_scalar(PyObject* self, PyObject* args);
+extern PyObject* py_transpose_matrix(PyObject* self, PyObject* args);
+extern PyObject* py_transpose_square_matrix(PyObject* self, PyObject* args);

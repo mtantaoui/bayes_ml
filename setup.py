@@ -25,6 +25,10 @@ setup(
                 "bayes_c_extensions/general_purpose_matrix_operations/py_set_diagonal.c",
                 "bayes_c_extensions/general_purpose_matrix_operations/set_diagonal_to_scalar.c",
                 "bayes_c_extensions/general_purpose_matrix_operations/py_set_diagonal_to_scalar.c",
+                "bayes_c_extensions/general_purpose_matrix_operations/transpose_matrix.c",
+                "bayes_c_extensions/general_purpose_matrix_operations/py_transpose_matrix.c",
+                "bayes_c_extensions/general_purpose_matrix_operations/transpose_square_matrix.c",
+                "bayes_c_extensions/general_purpose_matrix_operations/py_transpose_square_matrix.c",
             ],
             include_dirs=[np.get_include()],
         )

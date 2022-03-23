@@ -5,4 +5,6 @@ extern void set_row(double** A, double v[], int row, int ncols);
 extern void set_column(double** A, double v[], int col, int nrows);
 extern void get_diagonal(double v[], double* A, int nrows, int ncols);
 extern void set_diagonal(double** A, double v[], int nrows, int ncols);
-extern void set_diagonal_to_scalar(double **A, double x, int nrows, int ncols);
+extern void set_diagonal_to_scalar(double** A, double x, int nrows, int ncols);
+extern void transpose_matrix(double* At, double* A, int nrows, int ncols);
+extern void transpose_square_matrix(double* A, int n);
