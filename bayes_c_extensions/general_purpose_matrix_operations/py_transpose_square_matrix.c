@@ -5,7 +5,7 @@
 
 PyObject* py_transpose_square_matrix(PyObject* self, PyObject* args)
 {
-    PyArrayObject* py_matrix_in, *py_matrix_out;
+    PyArrayObject *py_matrix_in, *py_matrix_out;
     int n;
 
     import_array();
