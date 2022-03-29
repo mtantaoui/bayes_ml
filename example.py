@@ -28,5 +28,8 @@ print(bayes_ml.set_diagonal(a, (v+9) * 100))
 
 print(bayes_ml.set_diagonal_to_scalar(a, np.float64(-999)))
 
-print(bayes_ml.add_matrix(a, -a))
+print(bayes_ml.add_matrices(a, -2*a))
+
+print(bayes_ml.substract_matrices(a, a))
+
 
