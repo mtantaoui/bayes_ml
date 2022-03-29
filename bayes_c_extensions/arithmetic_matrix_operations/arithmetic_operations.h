@@ -1,0 +1,1 @@
+extern void add_matrices(double** C, double** A, double** B, int nrows, int ncols);

@@ -1,8 +1,9 @@
 // #define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION
-#include <stdint.h>
 #include "Python.h"
 #include "general_purpose_matrix_operations/general_purpose_pyfunctions.h"
+#include "arithmetic_matrix_operations/arithmetic_operations_pyfunctions.h"
 #include "numpy/arrayobject.h"
+#include <stdint.h>
 
 /* Module method table */
 static PyMethodDef BayesMethods[] = {
@@ -16,6 +17,8 @@ static PyMethodDef BayesMethods[] = {
     { "set_diagonal_to_scalar", py_set_diagonal_to_scalar, METH_VARARGS, "Set a matrix diagonal to scalar" },
     { "transpose_matrix", py_transpose_matrix, METH_VARARGS, "Transpose a matrix" },
     { "transpose_square_matrix", py_transpose_square_matrix, METH_VARARGS, "Transpose a square matrix" },
+    { "add_matrix", py_add_matrices, METH_VARARGS, "Add two matrices" },
+
     { NULL, NULL, 0, NULL }
 };
 

@@ -29,6 +29,8 @@ setup(
                 "bayes_c_extensions/general_purpose_matrix_operations/py_transpose_matrix.c",
                 "bayes_c_extensions/general_purpose_matrix_operations/transpose_square_matrix.c",
                 "bayes_c_extensions/general_purpose_matrix_operations/py_transpose_square_matrix.c",
+                "bayes_c_extensions/arithmetic_matrix_operations/add_matrices.c",
+                "bayes_c_extensions/arithmetic_matrix_operations/py_add_matrices.c",
             ],
             include_dirs=[np.get_include()],
         )

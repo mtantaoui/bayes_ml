@@ -24,7 +24,9 @@ print(bayes_ml.get_diagonal(a))
 
 print(bayes_ml.set_diagonal(a, v))
 
-print(bayes_ml.set_diagonal(a, v+ * 100))
+print(bayes_ml.set_diagonal(a, (v+9) * 100))
 
 print(bayes_ml.set_diagonal_to_scalar(a, np.float64(-999)))
+
+print(bayes_ml.add_matrix(a, -a))
 
