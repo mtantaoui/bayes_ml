@@ -1,7 +1,7 @@
 // #define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION
 #include "Python.h"
-#include "general_purpose_matrix_operations/general_purpose_pyfunctions.h"
 #include "arithmetic_matrix_operations/arithmetic_operations_pyfunctions.h"
+#include "general_purpose_matrix_operations/general_purpose_pyfunctions.h"
 #include "numpy/arrayobject.h"
 #include <stdint.h>
 
