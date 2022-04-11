@@ -36,7 +36,7 @@ PyObject* py_transpose_matrix(PyObject* self, PyObject* args)
     nrows = dim[1] = py_matrix_in->dimensions[0];
     ncols = dim[0] = py_matrix_in->dimensions[1];
 
-    py_matrix_out = (PyArrayObject*)PyArray_Zeros(2, dim, PyArray_DESCR(py_matrix_in), 0);
+    py_matrix_out = (PyArrayObject*)PyArray_SimpleNew(2, dim, NPY_DOUBLE);
 
     transpose_matrix((double*)py_matrix_out->data, (double*)py_matrix_in->data, nrows, ncols);
 

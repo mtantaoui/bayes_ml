@@ -39,8 +39,8 @@ PyObject* py_substract_matrices(PyObject* self, PyObject* args)
     nrows = py_matrix_A->dimensions[0];
     ncols = py_matrix_A->dimensions[1];
 
-    py_matrix_out = (PyArrayObject*)PyArray_SimpleNewFromData(
-        2, PyArray_DIMS(py_matrix_A), NPY_DOUBLE, py_matrix_A->data);
+    py_matrix_out = (PyArrayObject*)PyArray_SimpleNew(
+        2, PyArray_DIMS(py_matrix_A), NPY_DOUBLE);
 
     c_matrix_A = pymatrix_to_Carrayptrs(py_matrix_A);
     c_matrix_B = pymatrix_to_Carrayptrs(py_matrix_B);

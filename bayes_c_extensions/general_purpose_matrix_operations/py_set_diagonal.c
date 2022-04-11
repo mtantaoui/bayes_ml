@@ -50,7 +50,6 @@ PyObject* py_set_diagonal(PyObject* self, PyObject* args)
     set_diagonal(c_matrix_out, c_vector_out, nrows, ncols);
 
     free_Carrayptrs(c_matrix_out);
-    // free(c_vector_out);
 
     return PyArray_Return(py_matrix_out);
 }
