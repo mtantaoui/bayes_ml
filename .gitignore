@@ -2,3 +2,5 @@ token.txt
 build
 .venv_bayes
 bayes_ml.cpython-38-x86_64-linux-gnu.so
+.vscode/c_cpp_properties.json
+bayes_ml.cpython-38-darwin.so
