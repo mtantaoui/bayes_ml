@@ -38,10 +38,16 @@ print(bayes_ml.set_diagonal(a, (v+9) * 100))
 print("Set Diagonal to Scalar")
 print(bayes_ml.set_diagonal_to_scalar(a, np.float64(-999)))
 
-print("Add MAtrices")
+print("Add Matrices")
 print(bayes_ml.add_matrices(a, -2*a))
 
 print("Substract Matrices")
 print(bayes_ml.substract_matrices(a, a))
+
+print('Multiply matrix by scalar')
+print(bayes_ml.multiply_matrix_by_scalar(a, np.float64(0.5)))
+
+print("Divide Matrix by scalar")
+print(bayes_ml.divide_matrix_by_scalar(a, np.float64(2)))
 
 

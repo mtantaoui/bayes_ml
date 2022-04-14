@@ -19,6 +19,8 @@ static PyMethodDef BayesMethods[] = {
     // { "transpose_square_matrix", py_transpose_square_matrix, METH_VARARGS, "Transpose a square matrix" },
     { "add_matrices", py_add_matrices, METH_VARARGS, "Add two matrices" },
     { "substract_matrices", py_substract_matrices, METH_VARARGS, "Substract two matrices" },
+    { "multiply_matrix_by_scalar", py_multiply_matrix_by_scalar, METH_VARARGS, "Multiply matrix by scalar" },
+    { "divide_matrix_by_scalar", py_divide_matrix_by_scalar, METH_VARARGS, "Divide matrix by scalar" },
     { NULL, NULL, 0, NULL }
 };
 
